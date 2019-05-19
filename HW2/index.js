@@ -111,7 +111,7 @@ function task3() {
 
     if(canceled) return;
 
-    if(input == 0) {
+    if(0 === input) {
         message = 'Нулевое число';
     } else {
         message = (input < 0)? 'Отрицательное ' : 'Положительное ';
