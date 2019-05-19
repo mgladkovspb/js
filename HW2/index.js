@@ -87,6 +87,46 @@ function task2() {
 }
 
 function task3() {
+    let input     = 0
+      , canceled  = false
+      , message   = ''
+      , represent = ['однозначное', 'двузначное', 'трехзначное']
+      , again     = true;
+
+    while(again) {
+        input = parseInt(prompt(
+            'Домашняя работа №2\n\nВведите число от -999 до 999', 0
+        ));
+    
+        if(isNaN(input)) {
+            alert('Не хотите - не надо, пока!');
+            canceled = true;
+            break;
+        }
+
+        if(input >= -999 || input <= 999) {
+            again = false;
+        }
+    }
+
+    if(canceled) return;
+
+    if(input == 0) {
+        message = 'Нулевое число';
+    } else {
+        message = (input < 0)? 'Отрицательное ' : 'Положительное ';
+        input = Math.abs(input);
+
+        let count = 0;
+        while(input > 0) {
+            input = Math.floor(input / 10);
+            count++;
+        }
+
+        message += represent[count - 1] + ' число.';
+    }
+
+    alert(message);
 }
 
 function task4() {
