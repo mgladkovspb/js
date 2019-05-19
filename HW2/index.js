@@ -33,27 +33,57 @@ function task1() {
 }
 
 function task2() {
-    let result = 0
-      , unit   = 0
-      , lenght = 0;
+    let unit    = 0
+      , length  = 0
+      , m       = ['дециметрах', 'километрах', 'метрах', 'миллиметрах', 'сантиметрах']
+      , message = 'Длинна отрезка: ';
 
     while(true) {
-        unit = parseInt(prompt(
-            'Выберите единицу измерения:\n \
-            1 — дециметр\n \
-            2 — километр\n \
-            3 — метр\n \
-            4 — миллиметр\n \
-            5 — сантиметр', 1
-        ));
+        if(0 == unit) {
+            unit = parseInt(prompt(
+                'Задача №2\n \
+                Выберите единицу измерения:\n \
+                1 — дециметр\n \
+                2 — километр\n \
+                3 — метр\n \
+                4 — миллиметр\n \
+                5 — сантиметр', 1
+            ));
 
-        if(isNaN(unit) || 1 > unit || unit > 5) continue;
+            if(isNaN(unit) || 1 > unit || unit > 5) {
+                unit = 0;
+                continue;
+            }
+        }
 
         length = parseInt(prompt(
-            'Введите длину отрезка', 1
+            'Задача №2\n \
+            Введите длину отрезка в ' + m[unit - 1], 1
         ));
+
+        if(isNaN(length) || length < 0) continue;
+        else break;
     }
 
+    switch(unit) {
+        case 1:
+            message += length * 0.1 + 'м.';
+            break;
+        case 2:
+            message += length * 1000 + 'м.';
+            break;
+        case 3:
+            message += length + 'м.';
+            break;
+        case 4:
+            message += length * 0.001 + 'м.';
+            break;
+        case 5:
+            message += length * 0.01 + 'м.';
+            break;
+    }
+
+    alert(message);
 }
 
 function task3() {
