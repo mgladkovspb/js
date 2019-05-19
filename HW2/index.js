@@ -97,7 +97,7 @@ function task3() {
         input = parseInt(prompt(
             'Домашняя работа №2\n\nВведите число от -999 до 999', 0
         ));
-    
+
         if(isNaN(input)) {
             alert('Не хотите - не надо, пока!');
             canceled = true;
@@ -130,22 +130,65 @@ function task3() {
 }
 
 function task4() {
+    console.log('Задача №4');
+    for(let i = 1; i <= 100; i++) {
+        switch(true) {
+            case 0 == i % 3 && 0 == i % 5:
+                console.log('FreeFive');
+                break;
+            case 0 == i % 3:
+                console.log('Free');
+                break;
+            case 0 == i % 5:
+                console.log('Five');
+                break;
+            default:
+                console.log(i);
+        }
+    }
+
+    alert('Результат в консоли.');
 }
 
 function task5() {
+    let input   = 0
+      , message = '';
+
+    input = parseInt(prompt(
+        'Домашняя работа №2\n\n\
+        Попробую оппределить - является год високосным или нет\n\
+        Введите год', 0
+    ));
+
+    if(isNaN(input)) {
+        alert('Не хотите - не надо, пока!');
+        return;
+    }
+
+    input = Math.abs(input);
+    if(0 == input % 4 && 0 == input % 400) {
+        message = input + ' - этот год високосный.'
+    } else {
+        message = input + ' - этот год не високосный.'
+    }
+
+    alert(message);
 }
 
 function task6() {
+
 }
 
 let task = 0;
 
 while(true) {
     task = parseInt(prompt(
-        'Домашняя работа №2\n\nВыберите номер задачи (1-6) или нажмите кнопку "отмена"', 1
+        'Домашняя работа №2\n\n\
+        Выберите номер задачи (1-6) или нажмите кнопку "отмена"', 1
     ));
 
     if(isNaN(task)) break;
 
-    window['task' + task]();
+    if(task >= 1 && task <= 6)
+        window['task' + task]();
 }
