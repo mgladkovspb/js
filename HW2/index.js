@@ -13,8 +13,7 @@ function userInput(message, min, max) {
 }
 
 function task1() {
-    let choice = 0
-      , again  = true;
+    let choice = 0;
 
     choice = userInput('Задача №1\n\nВведите номер месяца 1 - 12', 1, 12);
     switch(true) {
