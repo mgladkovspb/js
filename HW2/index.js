@@ -159,7 +159,7 @@ function task6() {
         sredstvo
     );
 
-    while(tarelki > 0 && sredstvo > 0.5) {
+    while(tarelki > 0 && sredstvo >= 0.5) {
         tarelki--;
         sredstvo -=0.5;
         console.log('Остаток средства: %s', sredstvo);
