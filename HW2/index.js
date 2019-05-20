@@ -166,10 +166,9 @@ function task5() {
     }
 
     input = Math.abs(input);
+    message = input + ' - этот год не високосный.';
     if(0 == input % 4 && 0 == input % 400) {
-        message = input + ' - этот год високосный.'
-    } else {
-        message = input + ' - этот год не високосный.'
+        message = input + ' - этот год високосный.';
     }
 
     alert(message);
