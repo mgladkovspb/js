@@ -17,24 +17,17 @@ function task1() {
 
     choice = userInput('Задача №1\n\nВведите номер месяца 1 - 12', 1, 12);
     switch(true) {
-        case choice === 12 || choice == 1 || choice === 2: 
-            alert('Зима'); 
-            again = false; 
-            break;
-        case 3 >= choice || choice <= 5: 
+        case choice >= 3 && choice <= 5: 
             alert('Весна'); 
-            again = false; 
             break;
-        case 6 >= choice || choice <= 8: 
+        case choice >= 6 && choice <= 8: 
             alert('Лето'); 
-            again = false; 
             break;
-        case 9 >= choice || choice <= 11: 
+        case choice >= 9 && choice <= 11: 
             alert('Осень'); 
-            again = false; 
             break;
         default: 
-            alert('Коллеги, просил же - число от 1 до 12');
+            alert('Зима'); 
     }
 }
 
