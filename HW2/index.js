@@ -132,17 +132,17 @@ function task5() {
     );
 
     input = Math.abs(input);
-    message = input + ' - этот год не високосный.';
-    if(0 == input % 4 && 0 == input % 400) {
-        message = input + ' - этот год високосный.';
+    message = input + ' - этот год високосный.';
+    if(0 != input % 4 || (0 == input % 100 && 0 != input % 400)) {
+        message = input + ' - этот год не високосный.';
     }
 
     alert(message);
 }
 
 function task6() {
-    let tarelki  = 10
-      , sredstvo = 3;
+    let tarelki  = 4
+      , sredstvo = 0.7;
 
     const plural = (n, titles) => {
         /*
@@ -159,7 +159,7 @@ function task6() {
         sredstvo
     );
 
-    while(tarelki > 0 && sredstvo > 0) {
+    while(tarelki > 0 && sredstvo > 0.5) {
         tarelki--;
         sredstvo -=0.5;
         console.log('Остаток средства: %s', sredstvo);
