@@ -69,6 +69,13 @@ function task4() {
     }
 
    for(let i = 1; i < 1000000; i++) {
+        /*
+        https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number
+        В данном случае, вместо функции cast можно просто подставить Number
+        parseInt напрямую подставлять нельзя т.к. у нее есть опциональный параметр [, radix]
+        а функция map, при вызове callback функции, дополнительно передает index и array, что сводит с ума parseInt
+        https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/map
+        */
         let str   = i.toString().padStart(6, '0')
           , left  = str.slice(0, 3).split('').map(cast)
           , right = str.slice(-3).split('').map(cast);
