@@ -70,7 +70,7 @@ function task4() {
 
    for(let i = 1; i < 1000000; i++) {
         /*
-        https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number
+        https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Number
         В данном случае, вместо функции cast можно просто подставить Number
         parseInt напрямую подставлять нельзя т.к. у нее есть опциональный параметр [, radix]
         а функция map, при вызове callback функции, дополнительно передает index и array, что сводит с ума parseInt
