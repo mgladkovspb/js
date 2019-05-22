@@ -39,6 +39,8 @@ function task2() {
 
     field = document.getElementById('field');
     field.innerHTML = text;
+
+    return '';
 }
 
 function task3() {
