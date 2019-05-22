@@ -81,13 +81,11 @@ function task4() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    /* 
-    https://developer.mozilla.org/ru/docs/Web/API/Console/dir 
+    /*
+    https://developer.mozilla.org/ru/docs/Web/API/Console
     */
-    console.log('Результат задачи №1:');
-    console.dir(task1());
-    console.log('Результат задачи №2: смотрите на верстке', task2());
-    console.log('Результат задачи №3:');
-    console.dir(task3());
+    console.log('Результат задачи №1: %o', task1());
+    console.log('Результат задачи №2: смотрите на верстке'), task2();
+    console.log('Результат задачи №3: %o', task3());
     console.log('Результат задачи №4: %s', task4());
 }, false);
