@@ -62,7 +62,7 @@ function task4() {
             match = document.dictionary.filter(
                 value => RegExp('^' + userInput.substring(0, inputLength - 1) + '\\S', 'i').test(value)
             ) || [];
-            typo = true;
+            typo  = true;
         }
 
         dropdown.innerHTML = '';
