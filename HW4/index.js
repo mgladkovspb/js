@@ -22,7 +22,10 @@ function task2() {
 }
 
 function task3() {
-    let pass = '', test, dgt;
+    let pass = ''
+      , test1 = false
+      , test2 = false
+      , test3 = false;
 
     pass = prompt('Введите пароль:\n\
     - длинна от 9 символов\n\
@@ -30,10 +33,11 @@ function task3() {
     - содержит более двух цифр\n\
     - содержит обязательно один из неалфавитных символов (например, !, $, #, %)');
 
-    test = /^[\w!$#%]/g.test(pass);
-    dgt  = pass.match(/\d/g);
+    test1 = /^[\w!$#%]{10,}$/g.test(pass);
+    test2 = /[!$#%]{1,}/g.test(pass);
+    test3 = pass.match(/\d/g) || [];
 
-    return (test && dgt.length > 2)? 'Пароль прошел проверку' : 'Пароль не прошел проверку';
+    return (test1 && test2 && test3.length > 2)? 'Пароль прошел проверку' : 'Пароль не прошел проверку';
 }
 
 function task4() {
