@@ -5,12 +5,13 @@
         <style>
             #myInput {
                 font-size: 16px;
-                padding: 14px 20px 12px 45px;
+                padding: 10px 10px;
                 border: none;
                 border-bottom: 1px solid #ddd;
+                width: 300px;
             }
 
-            #myInput:focus {outline: 3px solid #ddd;}
+            #myInput:focus {outline: 2px solid #27ae60;}
 
             .dropdown {
                 position: relative;
@@ -21,7 +22,7 @@
                 display: none;
                 position: absolute;
                 background-color: #f6f6f6;
-                min-width: 230px;
+                min-width: 318px;
                 overflow: auto;
                 border: 1px solid #ddd;
                 z-index: 1;
@@ -34,23 +35,36 @@
                 display: block;
             }
 
+            .ok {
+                background-color: rgba(52, 152, 219, .5);
+            }
+
+            .typo {
+                background-color: rgba(192, 57, 43, .5);
+            }
+
             .dropdown a:hover {background-color: #ddd;}
             .show {display: block;}
+
+            p {
+                font-weight: 500;
+                font-size: 16px;
+            }
         </style>
     </head>
     <body>
+        <h3>Задача №4**</h3>
+        <p>Немного отклонился от задачи. Набирать нужно не дни недели, а города России.</p>
+        <p>Поис начинается со второй буквы. Неправильно введенная буква будет подсвечена.</p>
+        <p>Для примера, можно набрать <span class="typo">"мосв"</span></p>
+        <br />
+        <br />
         <div class="dropdown">
-            <input type="text" placeholder="Search.." id="myInput" onkeyup="">
+            <input type="text" placeholder="Поиск.." id="myInput">
             <div id="myDropdown" class="dropdown-content">
-                <a href="#about">About</a>
-                <a href="#base">Base</a>
-                <a href="#blog">Blog</a>
-                <a href="#contact">Contact</a>
-                <a href="#custom">Custom</a>
-                <a href="#support">Support</a>
-                <a href="#tools">Tools</a>
             </div>
         </div>
+        <script src="city.js"></script>
         <script src="index.js"></script>
     </body>
 </html>
