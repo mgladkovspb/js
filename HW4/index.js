@@ -89,7 +89,6 @@ function task4() {
     });
 }
 
-
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Результат задачи №1: %s', task1());
     console.log('Результат задачи №2: %s', task2());
