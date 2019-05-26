@@ -37,12 +37,24 @@ function task3() {
         interests: [],
         print: function() {
             console.log('Карточка студента:');
-            console.log('Имя: %s' + this.firstName);
-            console.log('Фамилия: %s' + this.lastName);
-            console.log('Возраст: %s' + this.age);
-            console.log('Место обучения: %s' + this.place);
+            console.log('Имя: %s', this.firstName);
+            console.log('Фамилия: %s', this.lastName);
+            console.log('Возраст: %s', this.age);
+            console.log('Место обучения: %s', this.place);
             console.log('Интересы: %o', this.interests);
         }
+    }
+
+    const print = (student) => {
+        if(!student.firstName && !student.lastName && !student.age && !student.place && !student.interests)
+            return console.log('Не похоже на студента...');
+
+        console.log('Карточка студента:');
+        console.log('Имя: %s', student.firstName);
+        console.log('Фамилия: %s', student.lastName);
+        console.log('Возраст: %s', student.age);
+        console.log('Место обучения: %s', student.place);
+        console.log('Интересы: %o', student.interests);
     }
 
     let gm = Object.create(Student);
@@ -53,6 +65,15 @@ function task3() {
     gm.interests = ['Программирование', 'Автопутишествия', 'Пивасик'];
 
     gm.print();
+
+    let ii = Object.create(Student);
+    ii.firstName = 'Иван';
+    ii.lastName = 'Иванов';
+    ii.age = 20;
+    ii.place = '-';
+    ii.interests = ['Фотография', 'Горные лыжи'];
+
+    print(ii);
 }
 
 function task4() {
