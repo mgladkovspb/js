@@ -56,7 +56,28 @@ function task3() {
 }
 
 function task4() {
-    return '';
+    let alphabet1 = ['а', 'о', 'и', 'е', 'ё', 'э', 'ы', 'у', 'ю', 'я']
+      , alphabet2 = ['б', 'в', 'г', 'д', 'ж', 'з', 'й', 'к', 'л', 'м', 'н', 'п', 'р', 'с', 'т', 'ф', 'х', 'ц', 'ч', 'ш', 'щ']
+      , result = '';
+
+    const rnd = (min, max) => {
+        return Math.floor(min + Math.random() * (max + 1 - min));
+    }
+
+    let wordLength = rnd(3, 5)
+      , coin       = rnd(1, 2);
+
+    for(let i = 0; i < wordLength; i++) {
+        if(coin === 1) {
+            result += alphabet1[rnd(0, alphabet1.length - 1)];
+            coin = 2;
+        } else {
+            result += alphabet2[rnd(0, alphabet2.length - 1)];
+            coin = 1;
+        }
+    }
+
+    return result.toLocaleUpperCase();
 }
 
 document.addEventListener('DOMContentLoaded', function() {
