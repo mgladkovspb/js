@@ -110,7 +110,7 @@ function task4() {
             if(value.length !== userInput.length)
                 return false;
 
-            let reg = new RegExp('(?=[' + value + '])\\S', 'ig')
+            let reg = new RegExp('(?=[' + value.replace('-', '\\-') + '])\\S', 'ig')
               , res = userInput.match(reg);
 
             if(res === null)
@@ -141,7 +141,7 @@ function task4() {
                 for(let i = 0, len = element.length; i < len; i++) {
                     template += `<span class="${ (element[i].toLowerCase() === userInput[i].toLowerCase())? 'ok' : 'typo' }">${ element[i] }</span>`;
                 }
-                dropdown.innerHTML += `<a href="#" >${ template }</a>`;
+                dropdown.innerHTML += `<a href="#">${ template }</a>`;
             });
 
             dropdown.childNodes.forEach(node => {
@@ -149,10 +149,10 @@ function task4() {
                     return;
     
                 node.addEventListener('click', (e) => {
-                    input.value = e.target.text;
+                    input.value = e.currentTarget.text;
                     dropdown.innerHTML = '';
                     dropdown.classList.remove('show');
-                });
+                }, { capture: true, once: true });
             });
             dropdown.classList.add('show');
         }
