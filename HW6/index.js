@@ -84,11 +84,9 @@ function task3() {
 }
 
 function task4() {
-    
 }
 
 function task5() {
-    
 }
 
 document.addEventListener('DOMContentLoaded', function() {
