@@ -1,6 +1,20 @@
 'use strict';
 
 /*
+уже есть функционал используемы повторно...
+использовался в прошлых задачах...
+*/
+
+let lib = {};
+lib.plural = (n, titles) => {
+    return titles[(n % 10 == 1 && n % 100 != 11 ? 0 : n % 10 >= 2 && n %10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? 1 : 2)];
+};
+
+lib.rnd = (min, max) => {
+    return Math.floor(min + Math.random() * (max + 1 - min));
+};
+
+/*
 Возможно я плохо слушал пояснения к задаче...
 Решил как понял...
 */
@@ -34,16 +48,12 @@ function task2() {
     function init(min, max) {
         let dropped = [];
 
-        const rnd = (min, max) => {
-            return Math.floor(min + Math.random() * (max + 1 - min));
-        }
-
         function print() {
             let current = 0
               , it      = 0;
             do {
                 it++;
-                current = rnd(min, max);
+                current = lib.rnd(min, max);
                 if(dropped.includes(current))
                     continue;
 
@@ -68,15 +78,11 @@ function task3() {
         place: '',
         interests: [],
         print: function() {
-            const plural = (n, titles) => {
-                return titles[(n % 10 == 1 && n % 100 != 11 ? 0 : n % 10 >= 2 && n %10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? 1 : 2)];
-            }
-
             console.log('%s %s. %d %s. Интересы:', 
                 this.firstName, 
                 this.lastName,
                 this.age,
-                plural(this.age, ['год', 'года', 'лет']));
+                lib.plural(this.age, ['год', 'года', 'лет']));
             console.log(this.interests.toString());
             console.log('Учится в %s', this.place);
         }
@@ -133,7 +139,6 @@ function task5() {
         return (obja, objb) => {
             if(type !== 'asc' && type !== 'desc')
                 return 0; 
-
             return (type === 'asc')? obja.price - objb.price : objb.price - obja.price;
         }
     }
