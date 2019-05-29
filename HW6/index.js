@@ -129,17 +129,18 @@ function task5() {
         { 'price' : 8, 'count' : 4}
     ];
 
-    const descending = (obja, objb) => {
-        return objb.price - obja.price;
-    }
+    const sortFn = (type) => {
+        return (obja, objb) => {
+            if(type !== 'asc' && type !== 'desc')
+                return 0; 
 
-    const ascending = (obja, objb) => {
-        return obja.price - objb.price;
+            return (type === 'asc')? obja.price - objb.price : objb.price - obja.price;
+        }
     }
 
     console.log('Массив до сортировки: %o', arr);
-    console.log('Сортировка по убыванию: %o', Object.assign([], arr).sort(descending));
-    console.log('Сортировка по возрастанию: %o', Object.assign([], arr).sort(ascending));
+    console.log('Сортировка по убыванию: %o', Object.assign([], arr).sort(sortFn('desc')));
+    console.log('Сортировка по возрастанию: %o', Object.assign([], arr).sort(sortFn('asc')));
 }
 
 document.addEventListener('DOMContentLoaded', function() {
