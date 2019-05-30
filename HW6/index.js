@@ -123,7 +123,14 @@ function task4() {
         return n * factorial(n - 1);
     }
 
-    return factorial(10);
+    function factorialTail(n, pow = 1) {
+        if(n === 0)
+            return pow;
+        return factorialTail(n - 1, n * pow);
+    }
+
+    console.log('Рекурсия: %d', factorial(10));
+    console.log('Хвостовая рекурсия: %d', factorialTail(10));
 }
 
 function task5() {
@@ -155,7 +162,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('*------------------------------------*');
     console.log('Результат задачи №3:'), task3();
     console.log('*------------------------------------*');
-    console.log('Результат задачи №4: %d', task4());
+    console.log('Результат задачи №4:'), task4();
     console.log('*------------------------------------*');
     console.log('Результат задачи №5:'), task5();
 }, false);
