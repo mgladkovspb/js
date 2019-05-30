@@ -123,10 +123,10 @@ function task4() {
         return n * factorial(n - 1);
     }
 
-    function factorialTail(n, pow = 1) {
+    function factorialTail(n, m = 1) {
         if(n === 0)
-            return pow;
-        return factorialTail(n - 1, n * pow);
+            return m;
+        return factorialTail(n - 1, n * m);
     }
 
     console.log('Рекурсия: %d', factorial(10));
