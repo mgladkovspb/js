@@ -118,13 +118,13 @@ function task3() {
 
 function task4() {
     function factorial(n) {
-        if(n === 1)
-            return n;
+        if(n === 0)
+            return 1;
         return n * factorial(n - 1);
     }
 
     function factorialTail(n, m = 1) {
-        if(n === 1)
+        if(n === 0)
             return m;
         return factorialTail(n - 1, n * m);
     }
