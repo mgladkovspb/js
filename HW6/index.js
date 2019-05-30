@@ -46,28 +46,34 @@ function task1() {
 
 function task2() {
     function init(min, max) {
-        let dropped = [];
+        let dropped = []
 
         function print() {
             let current = 0
               , it      = 0;
+
             do {
                 it++;
                 current = lib.rnd(min, max);
-                if(dropped.includes(current))
-                    continue;
-
-                dropped.push(current);
+                if(!dropped.includes(current)) {
+                    dropped.push(current);
+                    break;
+                }
             } while(dropped.length < max) ;
-            console.log('%o', dropped);
             console.log('Количество итераций: %d', it);
+            console.log('%o', dropped);
+
+            return current;
         }
 
         return print;
     }
 
     let gen = init(1, 100);
-    gen();
+    for(let i = 0; i < 100; i++) {
+        console.log(gen());
+        console.log('***')
+    }
 }
 
 function task3() {
