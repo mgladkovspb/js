@@ -15,22 +15,22 @@ Date.prototype.msPerDay    = 1000 * 60 * 60 * 24;
 
 Date.prototype.daysTo = function(d) {
     let diff = d.getTime() - this.getTime();
-    return Math.floor(diff / (this.msPerDay));
+    return Math.floor(diff / this.msPerDay);
 }
 
 Date.prototype.hoursTo = function(d) {
     let diff = d.getTime() - this.getTime();
-    return Math.floor((diff % (this.msPerDay)) / (this.msPerHour));
+    return Math.floor((diff % this.msPerDay) / (this.msPerHour));
 }
 
 Date.prototype.minutesTo = function(d) {
     let diff = d.getTime() - this.getTime();
-    return Math.floor((diff % (this.msPerHour)) / (this.msPerMinute));
+    return Math.floor((diff % this.msPerHour) / (this.msPerMinute));
 }
 
 Date.prototype.secondsTo = function(d) {
     let diff = d.getTime() - this.getTime();
-    return Math.floor((diff % (this.msPerMinute)) / 1000);
+    return Math.floor((diff % this.msPerMinute) / 1000);
 }
 
 function task1() {
