@@ -144,7 +144,7 @@ function task4() {
           , template = `${ days.toString().padStart(3, '0') } ${lib.plural(days, ['день', 'дня', 'дней']) } 
                 ${ hours.toString().padStart(2, '0') } ${ lib.plural(hours, ['час', 'часа', 'часов']) } 
                 ${ minutes.toString().padStart(2, '0') } ${ lib.plural(minutes, ['минута', 'минуты', 'минут']) } 
-                ${ seconds.toString().padStart(2, '0') } ${ lib.plural(seconds, ['секунда', 'секунды', 'секунд']) }`;
+                ${ seconds.toString().padStart(2, '0') } ${ lib.plural(seconds, ['секунда', 'секунды', 'секунд']) } ;)`;
 
         countdown.innerText = template.replace(/[\r\n\t\f\v]/gm, '');
     }
