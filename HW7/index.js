@@ -142,7 +142,7 @@ function task4() {
           , minutes = now.minutesTo(dayD)
           , seconds = now.secondsTo(dayD)
           , template = `${ days.toString().padStart(3, '0') } ${lib.plural(days, ['день', 'дня', 'дней']) } 
-                ${ hours.toString().padStart(2, '0') } ${ lib.plural(hours, ['час', 'часа', 'часоы']) } 
+                ${ hours.toString().padStart(2, '0') } ${ lib.plural(hours, ['час', 'часа', 'часов']) } 
                 ${ minutes.toString().padStart(2, '0') } ${ lib.plural(minutes, ['минута', 'минуты', 'минут']) } 
                 ${ seconds.toString().padStart(2, '0') } ${ lib.plural(seconds, ['секунда', 'секунды', 'секунд']) }`;
 
