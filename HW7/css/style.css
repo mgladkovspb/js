@@ -1,0 +1,110 @@
+html, body {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    font-size: 15px;
+    font-weight: 400;
+    font-family: 'Lato', 'Open Sans', Helvetica, sans-serif;
+}
+
+.page-wrapper {
+    width: 500px;
+}
+
+.center {
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.party {
+    padding: 10px;
+    background-color: #e74d3c6b;
+    text-align: center;
+}
+
+.watch {
+    padding: 10px;
+    background-color: #9b59b66b;
+    text-align: center;
+}
+
+.cards {
+    padding: 10px;
+    background-color: #16a0856b;
+    text-align: center;
+}
+
+.traffic {
+    padding: 10px;
+    background-color: #297fb96b;
+    text-align: center;
+}
+
+#traffic-light {
+    list-style-type: none;
+    background-color: black;
+    width: 250px;
+    padding: 10px 0;
+    margin: 15px 15px 15px 110px;
+}
+
+#countdown {
+    font-size: 24px;
+}
+
+#traffic-light > li {
+    display: inline-block;
+}
+
+#traffic-light > li > a {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin: 5px;
+    text-decoration: none;
+    display: block;
+}
+
+.product-image {
+    width: 100px;
+    height: 80px;
+}
+
+.card {
+    margin: 5px 0;
+    width: 100%;
+    border: 1px solid;
+}
+
+.card td {
+    border: 1px solid;
+}
+
+.red {
+    background-color: #e74c3c;
+}
+
+.red-dark {
+    background-color: #e74d3c33;
+}
+
+.yellow {
+    background-color: #f1c40f;
+}
+
+.yellow-dark {
+    background-color: #f1c40f33;
+}
+
+.green {
+    background-color: #2ecc71;
+}
+
+.green-dark {
+    background-color: #2ecc7133;
+}
+
+.digit {
+    font-size: 25px;
+}
