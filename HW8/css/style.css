@@ -1,0 +1,160 @@
+html, body {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    font-size: 15px;
+    font-weight: 400;
+    font-family: 'Lato', 'Open Sans', Helvetica, sans-serif;
+}
+
+.page-wrapper {
+    width: 500px;
+}
+
+.hidden {
+    display: none;
+}
+
+.center {
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.clearfix:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+.shadow {
+    box-shadow: 2px 1px 5px -2px rgba(0,0,0,0.75);
+}
+
+.container {
+    margin: 40px 10px 0;
+    text-align: center;
+}
+
+.clickable-div-container {
+}
+
+.counter-container {
+}
+
+.books-table-container {
+}
+
+.content-container {
+}
+
+.tab-container {
+    text-align: left;
+}
+
+.tab {
+    overflow: hidden;
+    border: 1px solid #2e8dcc34;
+    background-color: #2e8dcc34;
+}
+
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+}
+
+.tab button:hover {
+    background-color: #2e8dcc71;
+}
+
+.tab button.active {
+    background-color: #2e8dcc;
+}
+
+.tabcontent {
+    text-align: left;
+    padding: 6px 12px;
+    border: 1px solid #2e8dcc34;
+    border-top: none;
+}
+
+.clickable-div {
+    display: inline-block;
+    height: 100px;
+    width: 21.5%;
+    margin: 0 5px;
+    border: 1px solid #282928;
+    background-color: #2e8dcc;
+}
+
+.blue {
+    background-color: #2e8dcc;
+}
+
+.red {
+    background-color: #e74c3c;
+}
+
+.red-dark {
+    background-color: #e74d3c33;
+}
+
+.yellow {
+    background-color: #f1c40f;
+}
+
+.yellow-dark {
+    background-color: #f1c40f33;
+}
+
+.green {
+    background-color: #2ecc71;
+}
+
+.green-dark {
+    background-color: #2ecc7133;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #ecedee;
+    border: none;
+    padding: 9px 24px 8px;
+    vertical-align: middle;
+    border-radius: 2px;
+}
+
+.btn-counter {
+    background-color: #2e8dcc;
+    color: #fff;
+}
+
+.books-table {
+    padding: 10px;
+    border-collapse: collapse;
+    width: 100%;
+    text-align: left;
+}
+  
+.books-table td, .books-table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.books-table tr:nth-child(even){background-color: #f2f2f2;}
+
+.books-table tr:hover {background-color: #ddd;}
+
+.books-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    color: white;
+}
