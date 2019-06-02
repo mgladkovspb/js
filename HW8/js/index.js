@@ -19,9 +19,57 @@ function task2() {
 }
 
 function task3() {
-    /*
-    в процессе.
-    */
+    let btnAddComment     = document.querySelector('#addComment')
+      , btnSaveComment    = document.querySelector('#saveComment')
+      , commentEditor     = document.querySelector('.commet-ditor')
+      , commentsContainer = document.querySelector('.container.comments-container');
+
+    btnAddComment.addEventListener('click', (e) => {
+        commentEditor.classList.toggle('hidden');
+        btnAddComment.disabled = true;
+    });
+
+    btnSaveComment.addEventListener('click', (e) => {
+        let text  = document.getElementById('commentText')
+          , model = { user: 'Muk', date: new Date(), avatar: 'i1.jpg', text: text.value }
+          , table = document.createElement('table'), img, td, tr;
+
+        table.classList.value = 'commet-table';
+
+        img = document.createElement('img');
+        img.src = 'img/' + model.avatar;
+        img.classList.value = 'avatar';
+
+        tr = document.createElement('tr');
+        td = document.createElement('td');
+        td.rowSpan = 2;
+        td.width = 100;
+        td.appendChild(img);
+        tr.appendChild(td);
+
+        td = document.createElement('td');
+        td.innerText = model.user;
+        tr.appendChild(td);
+
+        td = document.createElement('td');
+        td.innerText = model.date.toLocaleString('ru-RU').replace(',', '');
+        tr.appendChild(td);
+
+        table.appendChild(tr);
+
+        tr = document.createElement('tr');
+        td = document.createElement('td');
+        td.colSpan = 2;
+        td.innerText = model.text;
+        tr.appendChild(td);
+
+        table.appendChild(tr);
+        commentsContainer.appendChild(table);
+
+        commentEditor.classList.toggle('hidden');
+        btnAddComment.disabled = false;
+        text.value = '';
+    });
 }
 
 function task4() {
