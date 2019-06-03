@@ -3,7 +3,7 @@
 function task1() {
     let clickableDivContainer = document.querySelector('.clickable-div-container');
     clickableDivContainer.addEventListener('click', (e) => {
-        if(e.target.tagName !== 'DIV') {
+        if(e.target.tagName !== 'DIV' || Object.is(e.target, clickableDivContainer)) {
             return;
         }
 
