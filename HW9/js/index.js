@@ -28,6 +28,8 @@ function task1() {
     console.log('Работа с массивом строк:')
     console.log('Сортировка по возрастанию: %o', tools.sort(arrayOfString));
     console.log('Сортировка по убыванию: %o', tools.sort(arrayOfString, 'desc'));
+
+    console.log('Копирование массива: %o', tools.copy(arrayOfString));
 }
 
 function task2() {

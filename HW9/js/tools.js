@@ -113,6 +113,8 @@ let MyTools = (function(){
         this.shuffle = (array) => {
             return array.sort(() => Math.random() - 0.5);
         }
+
+        this.copy = array => [...array];
     }
 
     const plural = (n, titles) => {
