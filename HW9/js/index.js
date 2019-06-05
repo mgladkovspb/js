@@ -48,10 +48,8 @@ function task2() {
         }
     };
 
-    for (let i = -5; i <= 5; i += 0.01) {
-        line1.x.push(i);
-        line1.y.push((x => (1 > x)? x * x - 4 * x : 5 / x)(i));
-    }
+    for (let i = -5; i <= 5; i += 0.01)
+        line1.x.push(i), line1.y.push((x => (1 > x)? x * x - 4 * x : 5 / x)(i));
 
     Plotly.newPlot('task2', data, layout);	
 }
