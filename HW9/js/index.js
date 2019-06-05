@@ -33,7 +33,27 @@ function task1() {
 }
 
 function task2() {
-    console.log('Не реализовано.');
+    let line1  = { x:[], y:[], type:'scatter' }
+      , data   = [line1]
+      , layout = {
+        title: 'Задача №2',
+        xaxis: {
+            title: 'X',
+            showgrid: false,
+            zeroline: false
+        },
+        yaxis: {
+            title: 'Y',
+            showline: false
+        }
+    };
+
+    for (let i = -5; i <= 5; i += 0.01) {
+        line1.x.push(i);
+        line1.y.push((x => (1 > x)? x * x - 4 * x : 5 / x)(i));
+    }
+
+    Plotly.newPlot('task2', data, layout);	
 }
 
 function task3() {
