@@ -100,10 +100,10 @@ let MyTools = (function(){
 
         this.average = (array, field) => {
             let result = 0
-            , len    = array.length;
-            
+              , len    = array.length;
+
             if(len === 0) return result;
-            
+
             for(let i = 0; i < len; i++) 
                 result += (field === undefined)? array[i] : array[i][field];
     
