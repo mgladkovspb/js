@@ -11,21 +11,21 @@ function task1() {
         { 'price' : 8, 'count' : 4}
     ];
 
-    console.log('Работа с масивом объектов:')
+    console.log('Работа с массивом объектов:')
     console.log('Товар с минимальной ценой: %o', tools.min(arrayOfObjects, 'price'));
     console.log('Товар с максимальной ценой: %o', tools.max(arrayOfObjects, 'price'));
     console.log('Средняя цена товара: %d', tools.average(arrayOfObjects, 'price'));
 
     let arrayOfInt = [23, 17, 98, 3, 15, 44];
 
-    console.log('Работа с масивом чисел:')
+    console.log('Работа с массивом чисел:')
     console.log('Минимальное число: %d', tools.min(arrayOfInt));
     console.log('Максимальное число: %d', tools.max(arrayOfInt));
     console.log('среднее арифметическое: %d', tools.average(arrayOfInt));
 
     let arrayOfString = ['aaa', 'bbb', 'ccc', 'ddd', 'eee'];
 
-    console.log('Работа с масивом строк:')
+    console.log('Работа с массивом строк:')
     console.log('Сортировка по возрастанию: %o', tools.sort(arrayOfString));
     console.log('Сортировка по убыванию: %o', tools.sort(arrayOfString, 'desc'));
 }
