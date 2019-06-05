@@ -1,98 +1,100 @@
 'use strict';
 
-let Table = function(placeholder, data) {
-    this._table       = undefined;
-    this._placeholder = document.getElementById(placeholder);
-    this._data        = data || [];
-
-    this._sort = (field, type) => {
-        const sortFn = (field, type) => {
-            return (obja, objb) => {
-                let result = 0;
-                switch(typeof(obja[field])) {
-                    case 'number': 
-                        result = (type === 'asc')? obja[field] - objb[field] : objb[field] - obja[field];
-                        break;
-                    case 'string':
-                        result = (type === 'asc')? obja[field].localeCompare(objb[field]) : objb[field].localeCompare(obja[field]);
-                        break;
-                }
-                return result;
-            }
-        }
-
-        this._data.sort(sortFn(field, type));
-    }
-
-    this.update = () => {
-        let thead, tbody, tr, td;
-
-        if(this._table === undefined && this._data.length > 0) {
-            this._table = document.createElement('table');
-            this._table.classList.value = 'books-table';
-
-            thead = document.createElement('thead');
-            tr    = document.createElement('tr');
-
-            for(let prop in this._data[0]) {
-                td = document.createElement('td');
-                td.classList.value = 'blue';
-                td.setAttribute('data-sort', 'unsorted');
-                td.innerText = prop;
-                td.addEventListener('click', (e) => {
-                    e.target.dataset.sort = ((e.target.dataset.sort === 'unsort')? 'asc' : 
-                        (e.target.dataset.sort === 'asc')? 'desc' : 'asc');
-                    this._sort(e.target.innerText, e.target.dataset.sort);
-                    this.update();
-                });
-                tr.appendChild(td);
-            }
-
-            thead.appendChild(tr);
-            this._table.appendChild(thead);
-        }
-
-        tbody = this._table.getElementsByTagName('tbody')[0];
-        if(tbody === undefined) {
-            tbody = document.createElement('tbody');
-        }
-
-        // очистить тело таблицы
-        while (tbody.firstChild) {
-            tbody.removeChild(tbody.firstChild);
-        }
-
-        for(let i = 0; i < this._data.length; i++) {
-            let obj = this._data[i];
-
-            tr = document.createElement('tr');
-            for(let prop in obj) {
-                td = document.createElement('td');
-                td.innerText = obj[prop];
-                tr.appendChild(td);
-            }
-            tbody.appendChild(tr);
-        }
-
-        this._table.appendChild(tbody);
-        this._placeholder.appendChild(this._table);
-    }
-}
-
 function task1() {
+    let tools = new MyTools.ArrayTools();
+    
+    let arrayOfObjects = [ 
+        { 'price' : 10, 'count' : 2 }, 
+        { 'price' : 5, 'count' : 5}, 
+        { 'price' : 8, 'count' : 5 }, 
+        { 'price' : 12, 'count' : 4 }, 
+        { 'price' : 8, 'count' : 4}
+    ];
 
+    console.log('Работа с масивом объектов:')
+    console.log('Товар с минимальной ценой: %o', tools.min(arrayOfObjects, 'price'));
+    console.log('Товар с максимальной ценой: %o', tools.max(arrayOfObjects, 'price'));
+    console.log('Средняя цена товара: %d', tools.average(arrayOfObjects, 'price'));
+
+    let arrayOfInt = [23, 17, 98, 3, 15, 44];
+
+    console.log('Работа с масивом чисел:')
+    console.log('Минимальное число: %d', tools.min(arrayOfInt));
+    console.log('Максимальное число: %d', tools.max(arrayOfInt));
+    console.log('среднее арифметическое: %d', tools.average(arrayOfInt));
+
+    let arrayOfString = ['aaa', 'bbb', 'ccc', 'ddd', 'eee'];
+
+    console.log('Работа с масивом строк:')
+    console.log('Сортировка по возрастанию: %o', tools.sort(arrayOfString));
+    console.log('Сортировка по убыванию: %o', tools.sort(arrayOfString, 'desc'));
 }
 
 function task2() {
-    
+    console.log('Не реализовано.');
 }
 
 function task3() {
-    
+    console.log('Не реализовано.');
 }
 
 function task4() {
-    
+    const generateField = (n, prize) => {
+        let array = []
+          , len   = n * n;
+
+        if(n === 0) return array;
+
+        Object.assign(array, prize);
+        for(let i = array.length; i < len; i++)
+            array[i] = 'Пусто';
+
+        let tools = new MyTools.ArrayTools();
+        for(let i = 0; i < 10; i++)
+            tools.shuffle(array)
+
+        return array;
+    }
+
+    let gameField     = document.getElementById('game-field')
+      , attemptsField = document.getElementById('attempts');
+
+    const prepare = (array) => {
+        let attempts = 3;
+        return () => {
+            const listenerFn = (e) => {
+                let div = e.target;
+                e.stopPropagation();
+                if(attempts === 0)
+                    return;
+
+                let prize = array[parseInt(e.target.dataset.prize)];
+                if(prize === 'Пусто') {
+                    div.classList.value = 'cell shadow red';
+                    attempts--;
+                } else {
+                    div.classList.value = 'cell shadow green';
+                    attempts = 0;
+                }
+                div.innerText = prize;
+                attemptsField.innerText = `Количество попыток: ${attempts}`;
+                e.target.removeEventListener('click', listenerFn);
+            };
+
+            for(let i = 0; i < array.length; i++) {
+                let div = document.createElement('div');
+                div.classList.value = 'cell shadow blue';
+                div.setAttribute('data-prize', i);
+                div.addEventListener('click', listenerFn);
+                div.innerText = '?';
+                gameField.appendChild(div);
+                attemptsField.innerText = `Количество попыток: ${attempts}`;
+            }
+        }
+    }
+
+    let render = prepare(generateField(3, ['Деньги', 'Квартира', 'Машина']));
+    render();
 }
 
 function task5() {
@@ -103,14 +105,14 @@ function task5() {
         { art: '0004', year: 1969, author: 'Клиффорд Саймак', name: 'Я весь внутри плачу', description: 'Все, кто хотел, покинули Землю. Ушедшие оставили на Земле старых роботов и людей, которые ни к чему не стремились...' }
     ];
 
-    let boosTable = new Table('task5', books);
+    let boosTable = new MyTools.Table('task5', books);
     boosTable.update();
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    task1();
-    task2();
-    task3();
-    task4();
-    task5();
+    console.log('Результат задачи №1:'), task1();
+    console.log('Результат задачи №2:'), task2();
+    console.log('Результат задачи №3:'), task3();
+    console.log('Результат задачи №4 на вёрстке'), task4();
+    console.log('Результат задачи №5 на вёрстке'), task5();
 }, false);

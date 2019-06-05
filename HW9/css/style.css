@@ -36,3 +36,29 @@ html, body {
 .blue {
     background-color: #2e8dcc;
 }
+
+.red {
+    background-color: #e74c3c;
+}
+
+.green {
+    background-color: #2ecc71;
+}
+
+.cell {
+    width: 150px;
+    height: 60px;
+    display: inline-block;
+    margin: 10px;
+    padding-top: 40px; 
+    text-align: center;
+    line-height: 100px;
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: 600;
+    color: #182730;
+}
+
+.shadow {
+    box-shadow: 0px 0px 10px 0px rgba(170,170,170,1);
+}
