@@ -1,10 +1,10 @@
 'use strict';
 
-/*
-1. Массив должен быть из одинаковых объектов
-2. Поля объекта будут колонками таблицы
-*/
-let MyTools = (function(){ 
+let MyTools = (function() {
+    /*
+    1. Массив должен быть из одинаковых объектов
+    2. Поля объекта будут колонками таблицы
+    */
     const Table = function(placeholder, data) {
         this._table       = undefined;
         this._placeholder = document.getElementById(placeholder);

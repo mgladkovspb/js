@@ -54,21 +54,40 @@ function task2() {
 }
 
 function task3() {
-    console.log('Не реализовано.');
+    describe("Тест функций библиотеки MyTools", function() {
+        it('Склонение числительных: 1 - рубль',function() {
+            expect(MyTools.plural(1, ['рубль', 'рубля', 'рублей'])).toEqual('рубль');
+        })
+
+        it('Склонение числительных: 2 - рубля',function() {
+            expect(MyTools.plural(2, ['рубль', 'рубля', 'рублей'])).toEqual('рубля');
+        })
+
+        it('Склонение числительных: 5 - рублей',function() {
+            expect(MyTools.plural(5, ['рубль', 'рубля', 'рублей'])).toEqual('рублей');
+        })
+    });
+
+    afterAll(function() {
+        let task3Placeholder    = document.getElementById('task3')
+          , jasmineHtmlReporter = document.querySelector('.jasmine_html-reporter');
+
+        task3Placeholder.appendChild(jasmineHtmlReporter);
+    });
 }
 
 function task4() {
     const generateField = (n, prize) => {
-        let array = []
+        let tools = new MyTools.ArrayTools()
+          , array = tools.copy(prize)
           , len   = n * n;
 
         if(n === 0) return array;
 
-        Object.assign(array, prize);
+        tools.copy(array, prize);
         for(let i = array.length; i < len; i++)
             array[i] = 'Пусто';
 
-        let tools = new MyTools.ArrayTools();
         for(let i = 0; i < 10; i++)
             tools.shuffle(array)
 

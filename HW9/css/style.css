@@ -7,9 +7,17 @@ html, body {
     font-family: 'Lato', 'Open Sans', Helvetica, sans-serif;
 }
 
+.task1-container {
+    margin: 10px;
+}
+
 .task2-container {
     width: 700px;
     height: 400px;
+    margin: 10px;
+}
+
+.task3-container {
     margin: 10px;
 }
 
