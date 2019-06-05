@@ -10,27 +10,8 @@ let MyTools = (function(){
         this._placeholder = document.getElementById(placeholder);
         this._data        = data || [];
 
-        this._sort = (field, type) => {
-            const sortFn = (field, type) => {
-                return (obja, objb) => {
-                    let result = 0;
-                    switch(typeof(obja[field])) {
-                        case 'number': 
-                            result = (type === 'asc')? obja[field] - objb[field] : objb[field] - obja[field];
-                            break;
-                        case 'string':
-                            result = (type === 'asc')? obja[field].localeCompare(objb[field]) : objb[field].localeCompare(obja[field]);
-                            break;
-                    }
-                    return result;
-                }
-            }
-    
-            this._data.sort(sortFn(field, type));
-        }
-
         this.update = () => {
-            let thead, tbody, tr, td;
+            let thead, tbody, tr, td, arrayTools = new ArrayTools();;
     
             if(this._table === undefined && this._data.length > 0) {
                 this._table = document.createElement('table');
@@ -47,7 +28,9 @@ let MyTools = (function(){
                     td.addEventListener('click', (e) => {
                         e.target.dataset.sort = ((e.target.dataset.sort === 'unsort')? 'asc' : 
                             (e.target.dataset.sort === 'asc')? 'desc' : 'asc');
-                        this._sort(e.target.innerText, e.target.dataset.sort);
+                        arrayTools.sort(this._data, 
+                            e.target.dataset.sort, 
+                            e.target.innerText);
                         this.update();
                     });
                     tr.appendChild(td);
